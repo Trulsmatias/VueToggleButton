@@ -17,10 +17,10 @@ function toggle() {
 }
 
 const backgroundStyles = computed(() => {
-    if (props.isEndabled) {
+    if (!props.isEndabled) {
         return {
-            'background-activated': props.value,
-            'background-deactivated': !props.value
+            'background-activated-disabled': props.value,
+            'background-deactivated-disabled': !props.value
         };
     }
     return {
@@ -75,7 +75,7 @@ const indicatorStyles = computed(() => {
 }
 
 .background-activated-disabled {
-    background-color: #518D6C;
+    background-color: #518D6CAF;
 }
 
 .background-deactivated-disabled {
