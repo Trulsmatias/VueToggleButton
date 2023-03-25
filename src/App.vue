@@ -24,8 +24,8 @@ const isToggleEnabled = true;
   <main>
     <TheWelcome />
     <ToggleItem :leftLabel="leftLabelValue" v-bind:right-label="rightLabelValue" />
-    <TuturialToggle :value="toggleValue" @emittedValued="(val) => toggleValue = val" left-label="hihi"
-      right-label="hoho" :isEndabled="isToggleEnabled" />
+    <TuturialToggle :value="toggleValue" @emittedValued="(val) => toggleValue = val" :left-label="leftLabelValue"
+      :right-label="rightLabelValue" :isEndabled="isToggleEnabled" />
     <p>{{ toggleValue }}</p>
   </main>
 </template>

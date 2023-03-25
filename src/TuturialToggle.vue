@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { processSlotOutlet } from '@vue/compiler-core';
-import { ref, computed } from 'vue'
+import { computed } from 'vue'
 
 const props = defineProps({
     value: Boolean,
