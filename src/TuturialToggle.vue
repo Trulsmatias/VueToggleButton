@@ -54,7 +54,9 @@ const indicatorStyles = computed(() => {
     </div>
 </template>
 
-<style>
+<style lang="scss">
+$toggle-button-border-radius: 20px;
+
 .horizontal-content {
     display: flex;
     flex-direction: row;
@@ -64,8 +66,6 @@ const indicatorStyles = computed(() => {
     color: rgba(0, 0, 0, 0.9);
     font-size: 14px;
 }
-
-
 
 .background-activated {
     background-color: #518D6C;
@@ -89,7 +89,7 @@ const indicatorStyles = computed(() => {
     cursor: pointer;
     width: 34px;
     height: 16px;
-    border-radius: 20px;
+    border-radius: $toggle-button-border-radius;
     margin: 0 10px;
 }
 
@@ -99,7 +99,7 @@ const indicatorStyles = computed(() => {
 
 .toggle-background {
     display: inline-block;
-    border-radius: 20px;
+    border-radius: $toggle-button-border-radius;
     height: 100%;
     width: 100%;
     transition: background-color .4s ease;
