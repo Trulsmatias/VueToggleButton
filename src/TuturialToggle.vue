@@ -18,13 +18,13 @@ function toggle() {
 const backgroundStyles = computed(() => {
     if (!props.isEndabled) {
         return {
-            'background-activated-disabled': props.value,
-            'background-deactivated-disabled': !props.value
+            'toggle__button--activated-disabled': props.value,
+            'toggle__button--deactivated-disabled': !props.value
         };
     }
     return {
-        'background-activated': props.value,
-        'background-deactivated': !props.value
+        'toggle__button--activated': props.value,
+        'toggle__button--deactivated': !props.value
     };
 })
 
@@ -41,49 +41,49 @@ const indicatorStyles = computed(() => {
 </script>
 
 <template>
-    <div class="horizontal-content">
-        <p class="label-style">{{ leftLabel }}</p>
+    <div class="toggle">
+        <p class="toggle__label">{{ leftLabel }}</p>
         <div>
-            <span class="toggle-wrapper" role="checkbox" :aria-checked="value" tabindex="0" @click="toggle"
+            <span class="toggle__wrapper" role="checkbox" :aria-checked="value" tabindex="0" @click="toggle"
                 @keydown.space.prevent="toggle">
-                <span class="toggle-background" :class="backgroundStyles" />
-                <span class="toggle-indicator" :style="indicatorStyles" />
+                <span class="toggle__background" :class="backgroundStyles" />
+                <span class="toggle__indicator" :style="indicatorStyles" />
             </span>
         </div>
-        <p class="label-style">{{ rightLabel }}</p>
+        <p class="toggle__label">{{ rightLabel }}</p>
     </div>
 </template>
 
 <style lang="scss">
 $toggle-button-border-radius: 20px;
 
-.horizontal-content {
+.toggle {
     display: flex;
     flex-direction: row;
 }
 
-.label-style {
+.toggle__label {
     color: rgba(0, 0, 0, 0.9);
     font-size: 14px;
 }
 
-.background-activated {
+.toggle__button--activated {
     background-color: #518D6C;
 }
 
-.background-deactivated {
+.toggle__button--deactivated {
     background-color: #00000033;
 }
 
-.background-activated-disabled {
+.toggle__button--activated-disabled {
     background-color: #518D6CAF;
 }
 
-.background-deactivated-disabled {
+.toggle__button--deactivated-disabled {
     background-color: #0000001A;
 }
 
-.toggle-wrapper {
+.toggle__wrapper {
     display: inline-block;
     position: relative;
     cursor: pointer;
@@ -93,11 +93,11 @@ $toggle-button-border-radius: 20px;
     margin: 0 10px;
 }
 
-.toggle-wrapper:focus {
+.toggle__wrapper:focus {
     outline: 0;
 }
 
-.toggle-background {
+.toggle__background {
     display: inline-block;
     border-radius: $toggle-button-border-radius;
     height: 100%;
@@ -105,7 +105,7 @@ $toggle-button-border-radius: 20px;
     transition: background-color .4s ease;
 }
 
-.toggle-indicator {
+.toggle__indicator {
     position: absolute;
     background-color: #ffffff;
     border-radius: 9999px;
