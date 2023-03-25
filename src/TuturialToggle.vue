@@ -62,6 +62,7 @@ const indicatorStyles = computed(() => {
 
 .label-style {
     color: rgba(0, 0, 0, 0.9);
+    font-size: 14px;
 }
 
 
