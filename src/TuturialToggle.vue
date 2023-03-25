@@ -44,7 +44,7 @@ const indicatorStyles = computed(() => {
     <div class="horizontal-content">
         <p class="label-style">{{ leftLabel }}</p>
         <div>
-            <span class="toggle-wrapper" role="checkbox" :aria-checked="value" tabindex="0" @click="toggle">
+            <span class="toggle-wrapper" role="checkbox" :aria-checked="value" tabindex="0" @click="toggle" @keydown.space.prevent="toggle">
                 <span class="toggle-background" :class="backgroundStyles" />
                 <span class="toggle-indicator" :style="indicatorStyles" />
             </span>
