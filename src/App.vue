@@ -9,7 +9,7 @@ import { ref } from 'vue'
 const leftLabelValue = "leftString"
 const rightLabelValue = "rightString"
 const toggleValue = ref(false);
-const isToggleEnabled = false;
+const isToggleEnabled = true;
 </script>
 
 <template>

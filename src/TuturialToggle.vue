@@ -30,7 +30,13 @@ const backgroundStyles = computed(() => {
 })
 
 const indicatorStyles = computed(() => {
-    return { transform: props.value ? 'translateX(14px)' : 'translateX(0)' };
+    return {
+        transform: props.value ? 'translateX(14px)' : 'translateX(0)',
+        height: props.value ? '12px' : '8px',
+        width: props.value ? '12px' : '8px',
+        left: props.value ? '6px' : '4px',
+        top: props.value ? '4px' : '6px',
+    };
 })
 
 </script>
@@ -39,8 +45,7 @@ const indicatorStyles = computed(() => {
     <div class="horizontal-content">
         <p class="label-style">{{ leftLabel }}</p>
         <div>
-            <span class="toggle-wrapper" role="checkbox" :aria-checked="value" tabindex="0" @click="toggle"
-                @keydown.space.prevent="toggle">
+            <span class="toggle-wrapper" role="checkbox" :aria-checked="value" tabindex="0" @click="toggle">
                 <span class="toggle-background" :class="backgroundStyles" />
                 <span class="toggle-indicator" :style="indicatorStyles" />
             </span>
@@ -60,6 +65,7 @@ const indicatorStyles = computed(() => {
 }
 
 
+
 .background-activated {
     background-color: #518D6C;
 }
@@ -67,22 +73,23 @@ const indicatorStyles = computed(() => {
 .background-deactivated {
     background-color: #00000033;
 }
+
 .background-activated-disabled {
     background-color: #518D6C;
 }
 
 .background-deactivated-disabled {
     background-color: #0000001A;
-;
+    ;
 }
 
 .toggle-wrapper {
     display: inline-block;
     position: relative;
     cursor: pointer;
-    width: 32px;
-    height: 18px;
-    border-radius: 9999px;
+    width: 34px;
+    height: 16px;
+    border-radius: 20px;
     margin: 0 10px;
 }
 
@@ -92,22 +99,16 @@ const indicatorStyles = computed(() => {
 
 .toggle-background {
     display: inline-block;
-    border-radius: 9999px;
+    border-radius: 20px;
     height: 100%;
     width: 100%;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: background-color .4s ease;
 }
 
 .toggle-indicator {
     position: absolute;
-    height: 14px;
-    width: 14px;
-    left: 2px;
-    bottom: 2px;
     background-color: #ffffff;
     border-radius: 9999px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform .4s ease;
 }
 </style>
