@@ -38,11 +38,25 @@ const indicatorStyles = computed(() => {
     };
 })
 
+const leftLabelPadding = computed(() => {
+    if (!props.leftLabel) return;
+    return {
+        margin: props.leftLabel ? '0px 10px 0px 0px' : '0px 0px 0px 0px'
+    }
+})
+
+const rightLabelPadding = computed(() => {
+    if (!props.rightLabel) return;
+    return {
+        margin: props.rightLabel ? '0px 0px 0px 10px' : '0px 0px 0px 0px'
+    }
+})
+
 </script>
 
 <template>
     <div class="toggle">
-        <p class="toggle__label">{{ leftLabel }}</p>
+        <p class="toggle__label" :style="leftLabelPadding">{{ leftLabel }}</p>
         <div>
             <span class="toggle__wrapper" role="checkbox" :aria-checked="value" tabindex="0" @click="toggle"
                 @keydown.space.prevent="toggle">
@@ -50,7 +64,7 @@ const indicatorStyles = computed(() => {
                 <span class="toggle__indicator" :style="indicatorStyles" />
             </span>
         </div>
-        <p class="toggle__label">{{ rightLabel }}</p>
+        <p class="toggle__label" :style="rightLabelPadding">{{ rightLabel }}</p>
     </div>
 </template>
 
@@ -90,7 +104,6 @@ $toggle-button-border-radius: 20px;
     width: 34px;
     height: 16px;
     border-radius: $toggle-button-border-radius;
-    margin: 0 10px;
 }
 
 .toggle__wrapper:focus {
